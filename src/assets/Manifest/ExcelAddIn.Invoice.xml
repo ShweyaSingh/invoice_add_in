@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+          xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+          xsi:type="TaskPaneApp">
+
+  <Id>9e91c0f5-5d20-4bc8-9677-06c026c8814a</Id>
+
+  <Version>1.0.0.0</Version>
+  <ProviderName>Nagarro</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Invoice Creator" />
+  <Description DefaultValue="Create new invoices via Excel (for existing customers)"/>
+  <IconUrl DefaultValue="http://localhost:4200/assets/Images/InvoiceAdj32x32.png" />
+  <SupportUrl DefaultValue="https://www.nagarro.com"/>
+
+  <AppDomains>
+    <AppDomain>https://signin.blackbaud.com/signin/</AppDomain>
+    <AppDomain>https://oauth2.sky.blackbaud.com/authorization</AppDomain>
+    <AppDomain>https://fnx-tusa01.app.blackbaud.net/addin/</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="ExcelApi" MinVersion="1.1"/>
+      <Set Name="BindingEvents" MinVersion="1.1"/>
+      <Set Name="MatrixBindings" MinVersion="1.1"/>
+      <Set Name="MatrixCoercion" MinVersion="1.1"/>
+      <Set Name="TableBindings" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="http://localhost:4200/#/home-page" />
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+
+    <Hosts>
+      <Host xsi:type="Workbook">
+
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="Nagarro.GetStarted.Title"/>
+            <Description resid="Nagarro.GetStarted.Description"/>
+            <LearnMoreUrl resid="Nagarro.GetStarted.LearnMore"/>
+          </GetStarted>
+
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+
+            <OfficeTab id="TabHome">
+              <Group id="Nagarro.NagarroGroup">
+                <Label resid="Nagarro.NagarroGroupLabel" />
+
+                <Icon>
+                  <bt:Image size="16" resid="Nagarro.tpicon_16x16" />
+                  <bt:Image size="32" resid="Nagarro.tpicon_32x32" />
+                  <bt:Image size="80" resid="Nagarro.tpicon_80x80" />
+                </Icon>
+
+                <Control xsi:type="Button" id="Nagarro.TaskpaneButton">
+                  <Label resid="Nagarro.TaskpaneButton.Label" />
+                  <Supertip>
+                    <Title resid="Nagarro.TaskpaneButton.Label" />
+                    <Description resid="Nagarro.TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Nagarro.tpicon_16x16" />
+                    <bt:Image size="32" resid="Nagarro.tpicon_32x32" />
+                    <bt:Image size="80" resid="Nagarro.tpicon_80x80" />
+                  </Icon>
+
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="Nagarro.Taskpane.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
+      <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
+      <bt:Images>
+        <bt:Image id="Nagarro.tpicon_16x16" DefaultValue="http://localhost:4200/assets/Images/InvoiceAdj16x16.png" />
+        <bt:Image id="Nagarro.tpicon_32x32" DefaultValue="http://localhost:4200/assets/Images/InvoiceAdj32x32.png" />
+        <bt:Image id="Nagarro.tpicon_80x80" DefaultValue="http://localhost:4200/assets/Images/InvoiceAdj80x80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Nagarro.Taskpane.Url" DefaultValue="http://localhost:4200/#/home-page" />
+        <bt:Url id="Nagarro.GetStarted.LearnMore" DefaultValue="https://www.nagarro.com" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="Nagarro.TaskpaneButton.Label" DefaultValue="Create Invoice" />
+        <bt:String id="Nagarro.NagarroGroupLabel" DefaultValue="Invoice" />
+        <bt:String id="Nagarro.GetStarted.Title" DefaultValue="Create a Invoice" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="Nagarro.TaskpaneButton.Tooltip" DefaultValue="Click to open the Invoice Add-In" />
+        <bt:String id="Nagarro.GetStarted.Description" DefaultValue="The Invoice Management Add-In loaded successfully. Go to the HOME tab and click 'Create Invoice.'" />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+
+</OfficeApp>

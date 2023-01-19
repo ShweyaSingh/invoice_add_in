@@ -1,0 +1,47 @@
+<div style="margin: 10px 10px 10px 10px">
+	<div style="text-align: left; border-bottom: 2px solid #065171">
+		<div>
+			<a href="https://www.nagarro.com">
+				<img
+					src="https://www.nagarro.com/hubfs/NagarroWebsiteRedesign-Aug2020/Assets/Images/Nagarro%20green%20logo%20with%20title_opt.svg"
+					class="headerIcon"
+				/>
+			</a>
+		</div>
+	</div>
+	<p class="paraHead">Welcome!</p>
+	<p class="para">
+		Use this add-in to create adjustments on posted invoices in Financial Edge
+		NXT.
+	</p>
+	<p class="para">
+		<b style="color: grey">Note:</b> You must sign in (and sign out) of the
+		add-in with your ID credentials.
+	</p>
+	<div style="text-align: left">
+		<button
+			(click)="login()"
+			[disabled]="isOperationRunning"
+			class="button-secondary pure-button"
+			s
+			style="
+				background-color: #47d7ac;
+				border-radius: 30px;
+				color: white;
+				border: none;
+				padding: 9px 20px;
+				cursor: pointer;
+			"
+		>
+			{{ signInButtonText }}
+		</button>
+	</div>
+
+	<p class="paraSupport">
+		Need assistance? Visit
+		<a href="https://www.nagarro.com" target="_blank">
+			https://www.nagarro.com</a
+		>
+		to learn more about Nagarro offerings.
+	</p>
+</div>
