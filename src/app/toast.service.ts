@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { PinkToast } from './invoice/toast.component';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class ToastService {
     this.toastr.success(message, subject, { closeButton: true, timeOut: 0, extendedTimeOut: 0, positionClass: 'toast-bottom-right' });
   };
 
+  successWithLink(subject : string, message? : string) {
+    this.toastr.success(message, subject, {toastComponent:PinkToast  ,closeButton: true, timeOut: 0, extendedTimeOut: 0, positionClass: 'toast-bottom-right',enableHtml: true });
+  };
+  
   /**
    * Show Warning message.
    * @param {string} subject - Title of toast

@@ -11,6 +11,8 @@ import {InvoiceComponent} from './invoice/invoice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { PinkToast } from './invoice/toast.component';
+
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,7 +30,8 @@ const routes: Routes = [
 		HomePageComponent,
 		SignincompleteComponent,
 		SignoutcompleteComponent,
-		InvoiceComponent
+		InvoiceComponent,
+		PinkToast 
 	],
 	imports: [BrowserModule, HttpClientModule, NgxSpinnerModule, SkyAlertModule, RouterModule.forRoot(routes), 
 			  BrowserAnimationsModule, ToastrModule.forRoot()],
