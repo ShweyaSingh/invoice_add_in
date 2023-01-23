@@ -778,9 +778,8 @@ export class InvoiceComponent implements OnInit {
       .subscribe({
         next: (res) => {
           const responseJSON = JSON.parse(JSON.stringify(res));
-          this.toastService.success(
-            "Invoice Created with record Id: " + responseJSON["record_id"]
-          );
+          this.toastService.successWithLink(
+            responseJSON["record_id"]);
           this.SpinnerService.hide();
           this.updateRowsWithRecordId(row, count, responseJSON["record_id"]);
         },
